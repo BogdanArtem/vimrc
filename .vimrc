@@ -10,15 +10,24 @@ source ~/.vim_runtime/my_configs.vim
 catch
 endtry
 
-noremap tn :tabnew<Space>
-noremap tk :tabnext<CR>
-noremap tj :tabprev<CR>
-noremap th :tabfirst<CR>
-noremap tl :tablast<CR>
-noremap tc :tabc<CR>
-noremap nt :NERDTree<CR>
+set path+=**
+set wildmenu
 
-map <D-> :valera
+set number
+set relativenumber
 
-noremap <C-Tab> :<C-U>tabnext<CR>
-noremap <C-Tab> <C-\><C-N>:tabnext<CR>
+colorscheme gruvbox
+
+let g:kite_tab_complete=1
+set completeopt-=menu
+set completeopt+=menuone   " Show the completions UI even with only 1 item
+set completeopt-=longest   " Don't insert the longest common text
+set completeopt-=preview   " Hide the documentation preview window
+set completeopt+=noinsert  " Don't insert text automatically
+set completeopt-=noselect  " Highlight the first completion automatically
+set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2  " always display the status line
+
+syntax on
+filetype indent plugin on
+set tabstop=8 expandtab shiftwidth=4 softtabstop=4
